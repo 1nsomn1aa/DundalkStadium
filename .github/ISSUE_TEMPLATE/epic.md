@@ -1,8 +1,8 @@
 ---
-name: User Story
-about: Default user story template
-title: 'USER STORY:'
-labels: USER-STORY
+name: Epic
+about: Default EPIC template
+title: 'EPIC: '
+labels: EPIC
 assignees: 1nsomn1aa
 
 ---
