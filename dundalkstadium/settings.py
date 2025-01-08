@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-w62p(6qxp37*2^6(uup8a(7t=sggw-_gb^!kbdmtv%#x8jd2uk
 DEBUG = False
 
 ALLOWED_HOSTS = ['8000-1nsomn1aa-bookingsite-wrxmejald9u.ws.codeinstitute-ide.net', 
-                '.herokuapp.com']
+                '.herokuapp.com',
+                'dundalkstadium-9893874ee925.herokuapp.com']
 
 
 # Application definition
