@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9&)f4gjou7)g3f**c(0it(4efz0h%pizuhva9i@_sd6exb^(o*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-1nsomn1aa-dundalkstadiu-q0jqdhcxgfm.ws.codeinstitute-ide.net',
                 '.herokuapp.com']
@@ -32,13 +32,13 @@ ALLOWED_HOSTS = ['8000-1nsomn1aa-dundalkstadiu-q0jqdhcxgfm.ws.codeinstitute-ide.
 # Application definition
 
 INSTALLED_APPS = [
+    'website.apps.WebsiteConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'website',
 ]
 
 MIDDLEWARE = [
