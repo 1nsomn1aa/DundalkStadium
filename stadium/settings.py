@@ -29,6 +29,11 @@ ALLOWED_HOSTS = ['8000-1nsomn1aa-dundalkstadiu-q0jqdhcxgfm.ws.codeinstitute-ide.
                 '.herokuapp.com']
 
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-1nsomn1aa-dundalkstadiu-q0jqdhcxgfm.ws.codeinstitute-ide.net']
+CSRF_ALLOWED_ORIGINS = ['https://8000-1nsomn1aa-dundalkstadiu-q0jqdhcxgfm.ws.codeinstitute-ide.net']
+CORS_ORIGINS_WHITELIST = ['https://8000-1nsomn1aa-dundalkstadiu-q0jqdhcxgfm.ws.codeinstitute-ide.net']
+CORS_ALLOWED_ORIGINS = ['https://8000-1nsomn1aa-dundalkstadiu-q0jqdhcxgfm.ws.codeinstitute-ide.net']
+
 # Application definition
 
 INSTALLED_APPS = [
