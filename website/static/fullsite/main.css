@@ -1,3 +1,37 @@
-h1 {
-    color: green;
+.nav-item {
+    text-transform: uppercase;
+}
+
+.navbar {
+    position: absolute;
+    width: 100%;
+}
+
+.navbar-logo {
+    margin-left: 15px;
+}
+
+.navbar-middle {
+    justify-content: center;
+}
+
+.navbar-socials {
+    justify-content: flex-end;
+    font-size: large;
+}
+
+.header {
+    background-color: #ffffffd5;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+}
+
+#hero {
+    background: linear-gradient(135deg, rgba(24, 33, 36, 0.2), rgba(24, 33, 36, 0.2)), url(../img/stadium.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
 }
