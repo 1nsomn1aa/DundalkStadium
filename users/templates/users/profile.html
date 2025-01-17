@@ -1,5 +1,9 @@
 {% extends "fullsite/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="container">
     <h1>{{ user.username }}</h1>
+    <h1>{{ user.email }}</h1>
+    <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" alt="">
+</div>
 {% endblock content %}
