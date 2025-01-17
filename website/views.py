@@ -1,9 +1,11 @@
 from django.shortcuts import render
-
-# Create your views here.
+from .models import News
 
 def home(request):
-    return render(request, 'fullsite/home.html')
+    context = {
+        'news': News.objects.all()
+    }
+    return render(request, 'fullsite/home.html', context)
 
 def events(request):
     return render(request, 'fullsite/events.html', {'title': 'Events'})
