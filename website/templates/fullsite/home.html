@@ -29,6 +29,7 @@
   </div>
 </section>
 
+<!-- News Section -->
 
 <section id="news" class="container">
   <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
@@ -44,20 +45,25 @@
           <strong class="d-inline-block mb-2 text-primary-emphasis">Stadium</strong>
           <h3 class="mb-0">{{ news.title }}</h3>
           <div class="mb-1 text-body-secondary">By {{ news.author }} on {{ news.date_posted|date:"F d, Y" }}</div>
-          <p class="card-text mb-auto">{{ news.content }}</p>
-          <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+          <p class="card-text mb-auto">{{ news.content|truncatechars:100 }}</p>
+          <a href="{% url 'news' news.id %}" class="icon-link gap-1 icon-link-hover stretched-link">
             Continue reading
             <svg class="bi">
               <use xlink:href="#chevron-right" /></svg>
           </a>
         </div>
         <div class="col-auto d-none d-lg-block">
+          {% if news.thumbnail %}
+          <img src="{{ news.thumbnail.url }}" alt="{{ news.title }} thumbnail"
+            class="img-fluid" style="width: 200px; height: 250px; object-fit: cover;" />
+          {% else %}
           <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"
             aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
             <title>Placeholder</title>
             <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
               dy=".3em">Thumbnail</text>
           </svg>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -66,16 +72,6 @@
 </section>
 
 
-<section id="footer" class="container">
-  <div class="container">
-    <footer class="py-3 my-4">
-      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Contact</a></li>
-      </ul>
-      <p class="text-center text-body-secondary">&copy; 2025 Dundalk Stadium</p>
-    </footer>
-  </div>
-</section>
+
+
 {% endblock content %}

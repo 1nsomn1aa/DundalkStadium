@@ -2,64 +2,62 @@
 {% block content %}
 
 <main class="container">
-
-
-
-
   <div class="row g-5">
     <div class="col-md-8">
-      <h3 class="pb-4 mb-4 fst-italic border-bottom">
-        News
-      </h3>
+      
+      {% if news.thumbnail %}
+      <img src="{{ news.thumbnail.url }}" alt="{{ news.title }} thumbnail" class="img-fluid rounded mx-auto d-block"
+        style="width: 100%; height: 500px; object-fit: cover;" />
+      {% else %}
+      <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+        preserveAspectRatio="xMidYMid slice" focusable="false">
+        <rect width="100%" height="100%" fill="#777" />
+      </svg>
+      {% endif %}
+      <hr>
 
       <article class="blog-post">
         <h2 class="display-5 link-body-emphasis mb-1">{{ news.title }}</h2>
         <p class="blog-post-meta"> By {{ news.author }} on {{ news.date_posted|date:"F d, Y" }} </p>
-
         <hr>
         <p>{{ news.content|linebreaks }}</p>
       </article>
-
-      
-      
-
-      <nav class="blog-pagination" aria-label="Pagination">
-        <a class="btn btn-outline-primary rounded-pill" href="#">Next</a>
-        <a class="btn btn-outline-secondary rounded-pill disabled" aria-disabled="true">Previous</a>
-      </nav>
-
     </div>
 
     <div class="col-md-4">
       <div class="position-sticky" style="top: 2rem;">
         <div>
           <h4 class="fst-italic">Recent News</h4>
-          {% for item in recent_news %}
           <ul class="list-unstyled">
+            {% for item in recent_news %}
             <li>
-              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+              <a class="d-flex flex-column gap-3 align-items-start py-3 link-body-emphasis text-decoration-none border-top"
                 href="{% url 'news' item.id %}">
+                {% if item.thumbnail %}
+                <img src="{{ item.thumbnail.url }}" alt="{{ news.title }} thumbnail" class="img-fluid rounded"
+                  style="width: 100%; height: 150px; object-fit: cover;" />
+                {% else %}
                 <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                  <rect width="100%" height="100%" fill="#777" /></svg>
-                <div class="col-lg-8">
-                  <h6 class="mb-0">{{ item.title }}</h6>
-                  <small class="text-body-secondary">{{ item.date_posted|date:"F d, Y" }}</small>
-                </div>
+                  <rect width="100%" height="100%" fill="#777" />
+                </svg>
+                {% endif %}
+                <h6 class="mb-0">{{ item.title }}</h6>
+                <small class="text-body-secondary">{{ item.date_posted|date:"F d, Y" }}</small>
               </a>
             </li>
+            {% endfor %}
           </ul>
-          {% endfor %}
         </div>
 
-
-
-        <div class="p-4">
-          <h4 class="fst-italic">SOCIAL</h4>
+        <hr>
+        <div class="text-center">
+          <h4 class="fst-italic">Follow Us On Socials</h4>
+          <h6>@DundalkStadium</h4>
           <ol class="list-unstyled">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Facebook</a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-facebook mx-2" style="color: #1877F2;"></i>Facebook</a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-instagram mx-2" style="color: #c13584;"></i>Instagram</a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-youtube mx-2" style="color: #FF0000;"></i>YouTube</a></li>
           </ol>
         </div>
       </div>
