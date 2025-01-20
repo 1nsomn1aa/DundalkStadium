@@ -18,3 +18,13 @@ def about(request):
 
 def contact(request):
     return render(request, 'fullsite/contact.html', {'title': 'Contact'})
+
+def news(request, post_id):
+    selected_news = News.objects.get(id=post_id)
+    recent_news = News.objects.order_by('-date_posted')[:3]
+
+    context = {
+        'news': selected_news,
+        'recent_news': recent_news,
+    }
+    return render(request, 'fullsite/news.html', context)
