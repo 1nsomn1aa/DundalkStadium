@@ -33,9 +33,10 @@
 <!-- News Section -->
 
 <section id="news" class="container">
-  <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
-    <div class="col-lg-6 px-0">
-      <h1 class="display-4 fst-italic">Latest News</h1>
+  <div class="position-relative overflow-hidden  text-center bg-body-tertiary">
+    <div class="col-md-6 p-lg-5 mx-auto my-5">
+      <h1 class="display-3 fw-bold">Latest News</h1>
+      <h3 class="fw-normal text-muted mb-3">Stay Informed with the Latest News!</h3>
     </div>
   </div>
   <div class="row">
@@ -47,7 +48,7 @@
           <h3 class="mb-0">{{ news.title }}</h3>
           <div class="mb-1 text-body-secondary">By {{ news.author }} on {{ news.date_posted|date:"F d, Y" }}</div>
           <p class="card-text mb-auto">{{ news.content|truncatechars:100 }}</p>
-          <a href="{% url 'news' news.id %}" class="icon-link gap-1 icon-link-hover stretched-link">
+          <a href="{% url 'news' news.id %}" class="icon-link gap-1 icon-link-hover  stretched-link">
             Continue reading
             <svg class="bi">
               <use xlink:href="#chevron-right" /></svg>
@@ -73,88 +74,140 @@
 </section>
 
 <!-- Facilities Section -->
-
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
-  <div class="col-md-6 p-lg-5 mx-auto my-5">
-    <h1 class="display-3 fw-bold">Facilities</h1>
-    <h3 class="fw-normal text-muted mb-3">Check out our current Facilities!</h3>
-    <div class="d-flex gap-3 justify-content-center lead fw-normal">
-      <a class="icon-link" href="#">
-        Booking
-        <svg class="bi">
-          <use xlink:href="#chevron-right" /></svg>
-      </a>
-      <a class="icon-link" href="#">
-        Events
-        <svg class="bi">
-          <use xlink:href="#chevron-right" /></svg>
-      </a>
+<section id="facilities">
+  <div class="position-relative overflow-hidden  text-center bg-body-tertiary">
+    <div class="col-md-6 p-lg-5 mx-auto my-5">
+      <h1 class="display-3 fw-bold">Facilities</h1>
+      <h3 class="fw-normal text-muted mb-3">Check out our current Facilities!</h3>
+      <div class="d-flex gap-3 justify-content-center lead fw-normal">
+        <a class="icon-link" href="#">
+          Booking
+          <svg class="bi">
+            <use xlink:href="#chevron-right" /></svg>
+        </a>
+        <a class="icon-link" href="#">
+          Events
+          <svg class="bi">
+            <use xlink:href="#chevron-right" /></svg>
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="d-md-flex flex-md-equal w-100 bg-dark text-white ">
-  <div class="text-center my-auto grow">
-    <div class="py-5">
-      <img src="{% static '/svg/horse-racing.svg' %}" style="width: 50px; height: 50px;" />
-      <h2 class="display-5">Racing Stadium</h2>
-      <p class="lead">Feel the thrill of Horse and Greyhound racing.</p>
+  <div class="d-md-flex flex-md-equal w-100 bg-dark text-white ">
+    <div class="text-center my-auto grow">
+      <div class="py-5 mx-5">
+        <img src="{% static '/svg/horse-racing.svg' %}" style="width: 50px; height: 50px;" />
+        <h2 class="display-5">Racing Stadium</h2>
+        <p class="lead">Immerse yourself in the excitement of horse and greyhound racing at our specialized racing
+          stadium. Designed exclusively for these thrilling events, the stadium offers comfortable seating, clear track
+          views, and a vibrant atmosphere for fans of all ages.</p>
+      </div>
+    </div>
+    <div class="bg-body-tertiary text-center overflow-hidden grow">
+      <div>
+        <img src="{% static '/img/horseracing.webp' %}" class="img-fluid"
+          style="width: 100%; height: 464px; object-fit: cover;" />
+      </div>
     </div>
   </div>
-  <div class="bg-body-tertiary text-center overflow-hidden grow">
+
+  <div class="d-md-flex flex-md-equal w-100 bg-light text-dark flex-columns">
+    <div class="bg-body-tertiary text-center overflow-hidden grow" id="div1">
+      <div>
+        <img src="{% static '/img/basketball-dunk.webp' %}" class="img-fluid"
+          style="width: 100%; height: 464px; object-fit: cover;" />
+      </div>
+    </div>
+    <div class="text-center my-auto grow" id="div2">
+      <div class="py-5 mx-5">
+        <img src="{% static '/svg/basketball-basket.svg' %}" style="width: 50px; height: 50px;" />
+        <h2 class="display-5">Basketball Courts</h2>
+        <p class="lead">Our premium basketball courts are built for both casual play and professional games. Featuring
+          high-quality flooring, adjustable hoops, and ample spectator seating, they provide an ideal setting for
+          players
+          and fans to enjoy the sport.
+
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-md-flex flex-md-equal w-100 bg-dark text-white">
+    <div class="text-center my-auto grow">
+      <div class="py-5 mx-5">
+        <img src="{% static '/svg/football.svg' %}" style="width: 50px; height: 50px;" />
+        <h2 class="display-5">Football Pitch</h2>
+        <p class="lead">Step onto a world-class football pitch designed to FIFA standards. Whether for practice sessions
+          or competitive matches, the lush, well-maintained grass and excellent lighting make it a pitch to remember.
+        </p>
+      </div>
+    </div>
+    <div class="bg-body-tertiary text-center overflow-hidden grow">
+      <div>
+        <img src="{% static '/img/football-field.webp' %}" class="img-fluid"
+          style="width: 100%; height: 464px; object-fit: cover;" />
+      </div>
+    </div>
+  </div>
+
+  <div class="d-md-flex flex-md-equal w-100 bg-light text-dark flex-columns">
+    <div class="bg-body-tertiary text-center overflow-hidden grow" id="div1">
+      <div>
+        <img src="{% static '/img/concert-hall.webp' %}" class="img-fluid"
+          style="width: 100%; height: 464px; object-fit: cover;" />
+      </div>
+    </div>
+    <div class="text-center my-auto grow" id="div2">
+      <div class="py-5 mx-5">
+        <img src="{% static '/svg/concert.svg' %}" style="width: 50px; height: 50px;" />
+        <h2 class="display-5">Concert Arena</h2>
+        <p class="lead">The concert arena offers a vibrant space for live performances, with cutting-edge acoustics,
+          dynamic lighting systems, and seating for thousands. Guests can also enjoy drinks and meals at our on-site bar
+          and restaurant, adding to the ultimate entertainment experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Opening Hours Section -->
+<section id="opening-hours" class="container my-5">
+  <div>
     <div>
-      <img src="{% static '/img/horseracing.webp' %}" class="img-fluid"
-        style="width: 100%; height: 464px; object-fit: cover;" />
+      <h1 class="display-5 my-3">Opening Hours</h1>
+      <table class="lead">
+        <tr>
+          <td>Monday</td>
+          <td>10:00–22:00</td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td>10:00–22:00</td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td>10:00–22:00</td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td>10:00–22:00</td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td>10:00–22:00</td>
+        </tr>
+        <tr>
+          <td>Saturday</td>
+          <td>08:00–00:00</td>
+        </tr>
+        <tr>
+          <td>Sunday</td>
+          <td>08:00–00:00</td>
+        </tr>
+      </table>
+      <p class="my-3 lead"><i>* Opening Hours might be different on event days. *</i></p>
+      <p class="lead"><i>* Restaurant / Bar services are only available during live events. *</i></p>
     </div>
   </div>
-</div>
-
-<div class="d-md-flex flex-md-equal w-100 bg-light text-dark flex-columns">
-  <div class="bg-body-tertiary text-center overflow-hidden grow" id="div1">
-    <div>
-      <img src="{% static '/img/basketball-dunk.webp' %}" class="img-fluid"
-        style="width: 100%; height: 464px; object-fit: cover;" />
-    </div>
-  </div>
-  <div class="text-center my-auto grow" id="div2">
-    <div class="py-5">
-      <img src="{% static '/svg/basketball-basket.svg' %}" style="width: 50px; height: 50px;" />
-      <h2 class="display-5">Basketball Courts</h2>
-      <p class="lead">Newly refurbished, state of the art courts.</p>
-    </div>
-  </div>
-</div>
-
-<div class="d-md-flex flex-md-equal w-100 bg-dark text-white">
-  <div class="text-center my-auto grow">
-    <div class="py-5">
-      <img src="{% static '/svg/football.svg' %}" style="width: 50px; height: 50px;" />
-      <h2 class="display-5">Football Pitch</h2>
-      <p class="lead">Unity, Passion, Glory, One Pitch.</p>
-    </div>
-  </div>
-  <div class="bg-body-tertiary text-center overflow-hidden grow">
-    <div>
-      <img src="{% static '/img/football-field.webp' %}" class="img-fluid"
-        style="width: 100%; height: 464px; object-fit: cover;" />
-    </div>
-  </div>
-</div>
-
-<div class="d-md-flex flex-md-equal w-100 bg-light text-dark flex-columns">
-  <div class="bg-body-tertiary text-center overflow-hidden grow" id="div1">
-    <div>
-      <img src="{% static '/img/concert-hall.webp' %}" class="img-fluid"
-        style="width: 100%; height: 464px; object-fit: cover;" />
-    </div>
-  </div>
-  <div class="text-center my-auto grow" id="div2">
-    <div class="py-5">
-      <img src="{% static '/svg/concert.svg' %}" style="width: 50px; height: 50px;" />
-      <h2 class="display-5">Concert Arena</h2>
-      <p class="lead">Enjoy live music, relax with a drink, or dine at our restaurant.</p>
-    </div>
-  </div>
-</div>
-
+</section>
 {% endblock content %}
