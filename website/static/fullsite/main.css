@@ -143,3 +143,30 @@ a {
     flex: 1;
   }
 }
+
+.grow img, div{
+  transition: 1s ease;
+  }
+  
+  .grow img:hover,
+  .grow div:hover{
+  -webkit-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  transform: scale(1.03);
+  transition: 1s ease;
+  }
+
+
+
+@media (max-width: 768px) {
+    #div1 {
+      order:2;
+    }
+    #div2 {
+      order:1;
+    }
+    .flex-columns {
+      display: flex;
+      flex-direction: column;
+    }
+}
