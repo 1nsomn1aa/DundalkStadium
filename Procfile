@@ -1,1 +1,1 @@
-web: gunicorn stadium.wsgi
+web:gunicorn stadium.wsgi
