@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
@@ -25,3 +25,10 @@ def profile(request):
         'user': request.user,
         'user_bookings': user_bookings,        
         })
+
+@login_required
+def delete_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+    booking.delete()
+    messages.success(request, 'Booking deleted successfully.')
+    return redirect('profile')

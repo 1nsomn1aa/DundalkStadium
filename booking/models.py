@@ -19,3 +19,6 @@ class Booking(models.Model):
     date = models.DateField()
     time_slot = models.TimeField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.date} at {self.time_slot.strftime('%H:%M')}"

@@ -21,7 +21,7 @@ from users import views as user_views
 from django.conf import settings
 from django.conf.urls.static import static
 from booking.views import booking_view
-
+from users.views import delete_booking
 
 urlpatterns = [
     path('', include('website.urls')),
@@ -31,6 +31,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('profile/', user_views.profile, name='profile'),
     path('booking/', booking_view, name='booking'),
+    path('booking/delete/<int:booking_id>/', delete_booking, name='delete_booking'),
 ]
 
 if settings.DEBUG:
