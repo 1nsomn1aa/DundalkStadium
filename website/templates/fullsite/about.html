@@ -1,4 +1,59 @@
 {% extends "fullsite/base.html" %}
 {% block content %}
-    ABOUTTEST
+{% load static %}
+
+<div class="position-relative overflow-hidden  text-center bg-body-tertiary">
+    <div class="col-md-6 p-lg-5 mx-auto">
+        <h1 class="display-3 fw-bold">About Us</h1>
+        <h3 class="fw-normal text-muted mb-3">History</h3>
+    </div>
+</div>
+
+<section id="about" class="">
+    <div class="container">
+        <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
+            <div class="col-12 col-lg-6 col-xl-5">
+                <img class="img-fluid rounded" loading="lazy" src="{% static '/img/stadium.webp' %}" alt="About 1">
+            </div>
+            <div class="col-12 col-lg-6 col-xl-7">
+                <div class="row justify-content-xl-center">
+                    <div class="col-12 col-xl-11">
+                        <p class="lead fs-4 text-secondary mb-3">Dundalk Stadium is Ireland’s premier destination for
+                            thrilling entertainment, offering a unique blend of horse and greyhound racing alongside an
+                            electric atmosphere. Located in the heart of County Louth, our state-of-the-art venue is a
+                            hub of excitement, attracting racing enthusiasts and visitors from all over the country.</p>
+                        <p class="lead fs-4 text-secondary mb-3">
+                            Whether you're here for a day at the races or an evening of fine dining and
+                            lively entertainment, Dundalk Stadium promises an unforgettable experience. Our floodlit
+                            all-weather horse racing track, the only one of its kind in Ireland, ensures year-round
+                            action, while our greyhound racing track delivers fast-paced excitement for all ages.</p>
+                        <br>
+                        <h2 class="mb-3 text-muted">Why choose Dundalk Stadium?</h2>
+                        <br>
+                        <div class="row gy-4 gy-md-0 gx-xxl-5X">
+                            <div class="col-12 col-md-6">
+                                <div class="d-flex">
+                                    <div>
+                                        <h2 class="h4 mb-3">Exceptional Experiences</h2>
+                                        <p class="text-secondary mb-0">Witness top-class sports events and world-class concerts in our state-of-the-art facilities.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="d-flex">
+                                    <div>
+                                        <h2 class="h4 mb-3">Dining & Hospitality</h2>
+                                        <p class="text-secondary mb-0">Enjoy delicious cuisine with breathtakings views of the arena, ensuring you never miss a moment of the action.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+
 {% endblock content %}
