@@ -181,7 +181,29 @@ a {
 
 /* Bookings */
 
+#booking {
+  background: url(/media/thumbnails/ticket-booth.webp) no-repeat 50% 50% / cover;
+}
 
+.booking-container {
+  
+}
+
+.booking-container,
+.booking-container button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 15px;
+  background-color: #ffffffd5;
+}
+
+.block {
+  display: block;
+  text-align: center;
+}
 
 /* Events Section */
 
