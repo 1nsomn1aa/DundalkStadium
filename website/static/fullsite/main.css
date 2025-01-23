@@ -180,3 +180,48 @@ a {
 }
 
 /* Bookings */
+
+
+
+/* Events Section */
+
+.events h2, .events h5, .events h4 {
+  font-family: var(--bs-body-font-family);
+  font-weight: 600;
+}
+
+.event {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px 25px;
+}
+
+#photo-1 {
+  background: url(/media/thumbnails/cause2.webp) no-repeat 50% 80% / cover;
+}
+
+#photo-2 {
+  background: url(/media/thumbnails/horseracing.webp) no-repeat 50% 60% / cover;
+}
+
+#photo-3 {
+  background: url(/media/thumbnails/cause2.webp) no-repeat 50% 80% / cover;
+}
+
+.event-text-box {
+  
+  background-color: #ffffffd5;
+  border-radius: 5px;
+  
+}
+
+.event-info {
+  
+}
+
