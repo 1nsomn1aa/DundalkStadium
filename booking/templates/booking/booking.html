@@ -1,0 +1,83 @@
+{% extends "fullsite/base.html" %}
+{% block content %}
+{% load static %}
+
+<form method="post" id="booking-form">
+    {% csrf_token %}
+    <label for="game-type">Select Game Type:</label>
+    <select name="game-type" id="game-type" onchange="updateCourts()">
+        <option value="" required>Select a game type</option>
+        {% for game in game_types %}
+            <option value="{{ game.id }}" >{{ game.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="court">Select Court:</label>
+    <select name="court" id="court" required>
+        <option value="">Select a court</option>
+    </select>
+
+    <label for="date">Select Date:</label>
+    <input type="date" name="date" id="date" required>
+
+    <button type="submit">Check Availability</button>
+</form>
+
+<script>
+    function updateCourts() {
+        const gameTypeSelect = document.getElementById("game-type");
+        const courtSelect = document.getElementById("court");
+        const selectedGameTypeId = gameTypeSelect.value;
+    
+        courtSelect.innerHTML = '<option value="">Select a court</option>';
+    
+        {% for court in courts %}
+            if ("{{ court.game_type.id }}" === selectedGameTypeId) {
+                const option = document.createElement("option");
+                option.value = "{{ court.id }}";
+                option.textContent = "{{ court.name }}";
+                courtSelect.appendChild(option);
+            }
+        {% endfor %}
+    
+        if (courtSelect.options.length === 1) {
+            courtSelect.disabled = true;
+        } else {
+            courtSelect.disabled = false;
+        }
+    }
+    </script>
+
+{% if is_checked %}
+    <h3>You have selected:</h3>
+    <p>Court: {{ selected_court_name }}</p>
+    <p>Date: {{ selected_date }}</p>
+    {% if available_slots %}
+        <h3>Available times:</h3>
+        <div>
+            <form method="post">
+                {% csrf_token %}
+                {% for hour in available_slots %}
+                    <label class="time-slot">
+                        <input type="radio" name="time-slot" value="{{ hour }}" required>
+                        {{ hour }}
+                    </label>
+                {% endfor %}
+
+                <input type="hidden" name="game-type" value="{{ game_type }}">
+                <input type="hidden" name="court" value="{{ selected_court }}">
+                <input type="hidden" name="date" value="{{ selected_date }}">
+
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+    {% else %}
+        <p>No available time slots for the selected date and court.</p>
+    {% endif %}
+{% endif %}
+
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+{% endblock content %}

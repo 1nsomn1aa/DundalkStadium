@@ -6,4 +6,26 @@
     <h1>{{ user.email }}</h1>
     <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" alt="">
 </div>
+
+{% if user_bookings %}
+    <h2>Your Bookings</h2>
+    <ul>
+        {% for booking in user_bookings %}
+            <li>
+                {{ booking.date }} at {{ booking.time_slot }} - Court: {{ booking.court.name }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>You have no bookings.</p>
+{% endif %}
+
+{% if messages %}
+<div class="alert">
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+
 {% endblock content %}

@@ -20,7 +20,7 @@ from django.urls import path, include
 from users import views as user_views
 from django.conf import settings
 from django.conf.urls.static import static
-from bookings.views import booking_view
+from booking.views import booking_view
 
 
 urlpatterns = [

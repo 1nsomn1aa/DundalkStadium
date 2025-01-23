@@ -40,7 +40,7 @@ CORS_ALLOWED_ORIGINS = ['https://8000-1nsomn1aa-dundalkstadiu-q0jqdhcxgfm.ws.cod
 INSTALLED_APPS = [
     'website.apps.WebsiteConfig',
     'users.apps.UsersConfig',
-    'bookings.apps.BookingsConfig',
+    'booking.apps.BookingConfig',
     'crispy_forms',
     'crispy_bootstrap5',
     'django.contrib.admin',

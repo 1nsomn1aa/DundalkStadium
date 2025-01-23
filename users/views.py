@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
+from booking.models import Booking
 
 def register(request):
     if request.method == 'POST':
@@ -18,4 +19,9 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, 'users/profile.html', {'title': 'Profile'})
+    user_bookings = Booking.objects.filter(user=request.user)
+    return render(request, 'users/profile.html', {
+        'title': 'Profile',
+        'user': request.user,
+        'user_bookings': user_bookings,        
+        })
