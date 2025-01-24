@@ -16,7 +16,7 @@
     <script src="https://kit.fontawesome.com/041ada9d0b.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg sticky-top header">
         <a href="/">
             <img src="{% static '/img/dundalk.png' %}" alt="Logo" width="150" height="80" class="navbar-brand img-fluid navbar-logo">
@@ -81,14 +81,10 @@
     {% endif %}
     {% block content %}{% endblock %}
 
-    <section id="footer" class="container">
-        <div>
-            <hr>
-          <footer class="my-4">
-            <p class="text-center text-body-secondary">&copy; 2025 Dundalk Stadium</p>
-          </footer>
-        </div>
-      </section>
+    <footer class="mt-auto">
+        <p class="text-center text-body-secondary">&copy; 2025 Dundalk Stadium</p>
+    </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">

@@ -1,4 +1,39 @@
 {% extends "fullsite/base.html" %}
 {% block content %}
-    contactTTEST
+
+<div class="position-relative overflow-hidden  text-center bg-body-tertiary">
+    <div class="col-md-6 p-lg-5 mx-auto">
+        <h1 class="display-3 fw-bold">Contact Us</h1>
+        <h3 class="fw-normal text-muted mb-3">Issues? Ideas? Questions? Ask them here!</h3>
+    </div>
+</div>
+
+<section class="container contact-section">
+    <form class="row g-3" method="post" action="{% url 'contact' %}">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstname" name="firstname">
+        </div>
+        <div class="col-md-6">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname" name="lastname">
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="col-md-12">
+            <label for="topic" class="form-label">Topic</label>
+            <input type="text" class="form-control" id="topic" placeholder="Issues, Ideas, General Questions" name="topic">
+        </div>
+        <div class="col-12">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="6" placeholder="Issues, Ideas, General Questions" name="message"></textarea>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+    </form>
+</section>
 {% endblock content %}

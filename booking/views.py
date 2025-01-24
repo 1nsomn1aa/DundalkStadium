@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import GameType, Booking, Court
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
 
 @login_required
 def booking_view(request):
@@ -52,6 +54,17 @@ def booking_view(request):
                 booking.save()
 
                 messages.success(request, 'Booking successful!')
+        
+                send_mail(
+                    'Booking Confirmation',
+                    f'Hello {request.user.username},\n\n'
+                    f'Your booking for {court.name} on {selected_date} at {selected_time_slot} has been confirmed!\n\n'
+                    'Thank you for using our service!',
+                    settings.EMAIL_HOST_USER,
+                    [request.user.email],
+                    fail_silently=False,
+                )
+
                 return redirect('profile')
 
             except Court.DoesNotExist:

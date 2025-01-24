@@ -2,6 +2,10 @@ h2, h3, h4, h5 {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
 
+body {
+  min-height: 100vh;
+}
+
 #news h1, #facilities h1, #opening-hours h1 {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
@@ -254,7 +258,5 @@ a {
   
 }
 
-.event-info {
-  
-}
+/* Contact */
 
