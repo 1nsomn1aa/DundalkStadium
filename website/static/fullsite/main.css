@@ -56,6 +56,13 @@ h2, h3, h4, h5 {
     height: 15vh;
 }
 
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* stylelint-disable @stylistic/selector-list-comma-newline-after */
 
 .blog-header-logo {
