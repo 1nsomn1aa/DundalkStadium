@@ -67,42 +67,16 @@ body {
   align-items: center;
 }
 
-/* stylelint-disable @stylistic/selector-list-comma-newline-after */
+.profile-container {
+  border: 1px solid rgba(128, 128, 128, 0.507);
+  border-radius: 15px;
+}
 
-.blog-header-logo {
-    font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
-    font-size: 2.25rem;
-  }
-  
-  .blog-header-logo:hover {
-    text-decoration: none;
-  }
-  
-  .flex-auto {
-    flex: 0 0 auto;
-  }
-  
-  .h-250 { height: 250px; }
-  @media (min-width: 768px) {
-    .h-md-250 { height: 250px; }
-  }
-  
-  /* Pagination */
-  .blog-pagination {
-    margin-bottom: 4rem;
-  }
-  
-  /*
-   * Blog posts
-   */
-  .blog-post {
-    margin-bottom: 4rem;
-  }
-  .blog-post-meta {
-    margin-bottom: 1.25rem;
-    color: #727272;
-  }
-  
+.profile-bookings {
+  border: 1px solid rgba(128, 128, 128, 0.507);
+  border-radius: 15px;
+}
+
 a {
   text-decoration: none;
 }

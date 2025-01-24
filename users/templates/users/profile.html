@@ -1,28 +1,63 @@
 {% extends "fullsite/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="container">
-    <h1>{{ user.username }}'s Profile</h1>
-    <h1>{{ user.email }}</h1>
-    <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" alt="">
-</div>
 
-{% if user_bookings %}
-    <h2>Your Bookings</h2>
-    <ul>
-        {% for booking in user_bookings %}
-            <li>
-                {{ booking.date }} at {{ booking.time_slot }} - Court: {{ booking.court.name }}
-                    <form action="{% url 'delete_booking' booking.id %}" method="post" style="display:inline;">
-                        {% csrf_token %}
-                        <button type="submit" onclick="return confirm('Are you sure you want to delete this booking?');">Delete</button>
-                    </form>
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>You have no bookings.</p>
-{% endif %}
+
+
+<section class="container center" id="profile">
+    <div class="container profile-container">
+
+        
+        <div class="text-center bg-body-tertiary">
+            <div class="col-md-6 p-lg-5 py-4 mx-auto">
+                <img class="profile-picture rounded" src="{{ user.profile.image.url }}" alt="">
+            </div>
+            <div class="col-md-6 mx-auto">
+                <h1 class="display-3 fw-bold">{{ user.username }}'s Profile</h1>
+                <h3 class="fw-normal text-muted mb-3">Welcome to your profile!</h3>
+            </div>
+        </div>
+
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Your Info</legend>
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="position-relative overflow-hidden text-center bg-body-tertiary">
+        <div class="p-lg-5 mx-auto">
+            <h1 class="display-3 fw-bold">Bookings</h1>
+        </div>
+    </div>
+
+    <div class="container text-center  center profile-bookings my-3 p-lg-5 py-3">
+        {% if user_bookings %}
+            <h2>Your Bookings</h2>
+            <ul>
+                {% for booking in user_bookings %}
+                    <li>
+                        {{ booking.date }} at {{ booking.time_slot }} - Court: {{ booking.court.name }}
+                            <form action="{% url 'delete_booking' booking.id %}" method="post" style="display:inline;">
+                                {% csrf_token %}
+                                <br>
+                                <button class="btn btn-secondary gap-3" type="submit" onclick="return confirm('Are you sure you want to delete this booking?');">Delete</button>
+                            </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You have no bookings.</p>
+        {% endif %}
+    </div>
+</section>
 
 {% if messages %}
 <div class="alert">
