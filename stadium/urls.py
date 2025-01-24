@@ -22,6 +22,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from booking.views import booking_view
 from users.views import delete_booking
+from django.conf.urls import handler404, handler500
+from website.views import custom_404_view, custom_500_view
+from django.shortcuts import render
 
 urlpatterns = [
     path('', include('website.urls')),
@@ -40,3 +43,6 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'website.views.custom_404_view'
+handler500 = 'website.views.custom_500_view'

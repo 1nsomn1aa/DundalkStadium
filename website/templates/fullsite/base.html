@@ -1,4 +1,5 @@
 {% load static %}
+{% csrf_token %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +19,7 @@
 
 <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg sticky-top header">
-        <a href="/">
+        <a href="{% url 'home' %}">
             <img src="{% static '/img/dundalk.png' %}" alt="Logo" width="150" height="80" class="navbar-brand img-fluid navbar-logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -28,19 +29,19 @@
         <div class="collapse navbar-collapse flex-grow-0 navbar-middle" id="navbarSupportedContent">
             <ul class="navbar-nav text-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/events">Events</a>
+                    <a class="nav-link" href="{% url 'events' %}">Events</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/booking">Booking</a>
+                    <a class="nav-link" href="{% url 'booking' %}">Booking</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                 </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item">

@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
 from .models import News
+from django.conf.urls import handler404, handler500
 
 def home(request):
     context = {
@@ -57,3 +58,9 @@ def news(request, post_id):
         'recent_news': recent_news,
     }
     return render(request, 'fullsite/news.html', context)
+
+def custom_404_view(request, exception):
+    return render(request, '404.html', status=404)
+
+def custom_500_view(request):
+    return render(request, '500.html', status=500)
