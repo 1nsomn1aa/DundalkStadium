@@ -2,8 +2,6 @@
 {% block content %}
 {% load static %}
 
-<section id="booking">
-
 <div class="position-relative overflow-hidden  text-center bg-body-tertiary">
     <div class="col-md-6 p-lg-5 mx-auto">
         <h1 class="display-3 fw-bold">Booking</h1>
@@ -11,81 +9,86 @@
     </div>
 </div>
 
-<form method="post" id="booking-form" class="container booking-container mt-5">
-    {% csrf_token %}
-    <label for="game-type"><h3 class="mt-4">Select Game Type:</h3></label>
-    <select name="game-type" id="game-type" onchange="updateCourts()">
-        <option value="" required>Select a game type</option>
-        {% for game in game_types %}
-            <option value="{{ game.id }}" >{{ game.name }}</option>
-        {% endfor %}
-    </select>
+<section id="booking" class="py-5 ">
+    <div class="mx-auto col-md-4">
+        <form method="post" id="booking-form" class="booking-container mt-5 px-5">
+            {% csrf_token %}
+            <label for="game-type" class="form-label"><h3 class="mt-4">Select Game Type:</h3></label>
+            <select name="game-type" id="game-type" onchange="updateCourts()" class="form-select">
+                <option value="" required>Select a game type</option>
+                {% for game in game_types %}
+                    <option value="{{ game.id }}" >{{ game.name }}</option>
+                {% endfor %}
+            </select>
 
-    <label for="court"><h3 class="mt-4">Select Court:</h3></label>
-    <select name="court" id="court" required>
-        <option value="">Select a court</option>
-    </select>
+            <label for="court" class="form-label"><h3 class="mt-4">Select Court:</h3></label>
+            <select name="court" id="court" class="form-select" required>
+                <option value="">Select a court</option>
+            </select>
 
-    <label for="date"><h3 class="mt-4">Select Date:</h3></label>
-    <input type="date" name="date" id="date" required>
+            <label for="date" class="form-label"><h3 class="mt-4">Select Date:</h3></label>
+            <input type="date" name="date" id="date" class="form-control" required>
     
-    <button type="submit" class="mt-5 mb-4">Check Availability</button>
-</form>
+            <button type="submit" class="mt-5 mb-4 btn btn-outline-primary">Check Availability</button>
+        </form>
+    </div>
 
-<script>
-    function updateCourts() {
-        const gameTypeSelect = document.getElementById("game-type");
-        const courtSelect = document.getElementById("court");
-        const selectedGameTypeId = gameTypeSelect.value;
+    <script>
+        function updateCourts() {
+            const gameTypeSelect = document.getElementById("game-type");
+            const courtSelect = document.getElementById("court");
+            const selectedGameTypeId = gameTypeSelect.value;
     
-        courtSelect.innerHTML = '<option value="">Select a court</option>';
+            courtSelect.innerHTML = '<option value="">Select a court</option>';
     
-        {% for court in courts %}
-            if ("{{ court.game_type.id }}" === selectedGameTypeId) {
-                const option = document.createElement("option");
-                option.value = "{{ court.id }}";
-                option.textContent = "{{ court.name }}";
-                courtSelect.appendChild(option);
+            {% for court in courts %}
+                if ("{{ court.game_type.id }}" === selectedGameTypeId) {
+                    const option = document.createElement("option");
+                    option.value = "{{ court.id }}";
+                    option.textContent = "{{ court.name }}";
+                    courtSelect.appendChild(option);
+                }
+            {% endfor %}
+    
+            if (courtSelect.options.length === 1) {
+                courtSelect.disabled = true;
+            } else {
+                courtSelect.disabled = false;
             }
-        {% endfor %}
-    
-        if (courtSelect.options.length === 1) {
-            courtSelect.disabled = true;
-        } else {
-            courtSelect.disabled = false;
         }
-    }
     </script>
 
-{% if is_checked %}
-    <div class="container booking-container mt-4 mb-5">
-    <h3>You have selected:</h3>
-    <p>Court: {{ selected_court_name }}</p>
-    <p>Date: {{ selected_date }}</p>
-    {% if available_slots %}
-        <h3>Available times:</h3>
-        <div>
-            <form method="post">
-                {% csrf_token %}
-                {% for hour in available_slots %}
-                    <label class="time-slot block">
-                        <input type="radio" name="time-slot" value="{{ hour }}" required>
-                        {{ hour }}
-                    </label>
-                {% endfor %}
+    {% if is_checked %}
+        <div class="container booking-container col-md-4 mt-5">
+            <div class="mt-5 px-5">
+                <h3>You have selected:</h3>
+                <p>Court: {{ selected_court_name }}</p>
+                <p>Date: {{ selected_date }}</p>
+                {% if available_slots %}
+                    <h3>Available times:</h3>
+                    <div>
+                        <form method="post">
+                            {% csrf_token %}
+                            {% for hour in available_slots %}
+                                <label class="time-slot block form-check-label">
+                                    <input class="form-check-input" type="radio" name="time-slot" value="{{ hour }}" required>
+                                    {{ hour }}
+                                </label>
+                            {% endfor %}
     
-                <input type="hidden" name="game-type" value="{{ game_type }}">
-                <input type="hidden" name="court" value="{{ selected_court }}">
-                <input type="hidden" name="date" value="{{ selected_date }}">
-                <br>
-                <button type="submit" class="mx-auto">Book Now</button>
-            </form>
+                            <input type="hidden" name="game-type" value="{{ game_type }}">
+                            <input type="hidden" name="court" value="{{ selected_court }}">
+                            <input type="hidden" name="date" value="{{ selected_date }}">
+                            <br>
+                            <button type="submit" class="mx-auto mb-4 btn btn-outline-primary">Book Now</button>
+                        </form>
+                    </div>
+                {% else %}
+                    <p>No available time slots for the selected date and court.</p>
+                {% endif %}
+            </div>
         </div>
-    {% else %}
-        <p>No available time slots for the selected date and court.</p>
     {% endif %}
-    </div>
-{% endif %}
 </section>
 {% if message %}
     <p>{{ message }}</p>

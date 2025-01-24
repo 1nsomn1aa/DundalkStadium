@@ -185,8 +185,8 @@ a {
   background: url(/media/thumbnails/ticket-booth.webp) no-repeat 50% 50% / cover;
 }
 
-.booking-container {
-  
+#booking p, h1, h2, h3, label {
+  font-family: var(--bs-body-font-family);
 }
 
 .booking-container,
@@ -195,7 +195,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid gray;
+  
   border-radius: 15px;
   background-color: #ffffffd5;
 }
@@ -203,6 +203,10 @@ a {
 .block {
   display: block;
   text-align: center;
+}
+
+#booking-form select {
+  
 }
 
 /* Events Section */
