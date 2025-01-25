@@ -1,0 +1,239 @@
+h2, h3, h4, h5 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+#news h1, #facilities h1, #opening-hours h1 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.nav-item {
+    text-transform: uppercase;
+}
+
+.navbar {
+    width: 100%;
+}
+
+.navbar-logo {
+    margin-left: 15px;
+}
+
+.navbar-middle, .navbar-socials {
+    justify-content: flex-end;
+    font-size: large;
+}
+
+.navbar button {
+  border: none
+}
+
+.header {
+    background-color: #ffffffd5;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+}
+
+#hero {
+    background: linear-gradient(135deg, rgba(24, 33, 36, 0.2), rgba(24, 33, 36, 0.2)), url("../img/stadium.528fa26845a5.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -86px;
+}
+
+#hero-text {
+    background-color: #ffffffd5;
+    padding: 25px 50px;
+    border-radius: 15px;
+    
+}
+
+#hero-img-small {
+    width: auto;
+    height: 15vh;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-container {
+  border: 1px solid rgba(128, 128, 128, 0.507);
+  border-radius: 15px;
+}
+
+.profile-bookings {
+  border: 1px solid rgba(128, 128, 128, 0.507);
+  border-radius: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*
+ * Facilities CSS
+ */
+
+ .product-device {
+  position: absolute;
+  right: 10%;
+  bottom: -30%;
+  width: 300px;
+  height: 540px;
+  background-color: #333;
+  border-radius: 21px;
+  transform: rotate(30deg);
+}
+
+.product-device::before {
+  position: absolute;
+  top: 10%;
+  right: 10px;
+  bottom: 10%;
+  left: 10px;
+  content: "";
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 5px;
+}
+
+.product-device-2 {
+  top: -25%;
+  right: auto;
+  bottom: 0;
+  left: 5%;
+  background-color: #e5e5e5;
+}
+
+
+/*
+ * Extra utilities
+ */
+
+.flex-equal > * {
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .flex-md-equal > * {
+    flex: 1;
+  }
+}
+
+.grow img, div{
+  transition: 1s ease;
+  }
+  
+  .grow img:hover,
+  .grow div:hover{
+  -webkit-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  transform: scale(1.03);
+  transition: 1s ease;
+  }
+
+/* Opening Hours */
+
+#opening-hours, #opening-hours table {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Bookings */
+
+#booking {
+  background: url(/media/thumbnails/ticket-booth.webp) no-repeat 50% 50% / cover;
+}
+
+#booking p, h1, h2, h3, label {
+  font-family: var(--bs-body-font-family);
+}
+
+.booking-container,
+.booking-container button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  border-radius: 15px;
+  background-color: #ffffffd5;
+}
+
+.block {
+  display: block;
+  text-align: center;
+}
+
+/* Events Section */
+
+.events h2, .events h5, .events h4 {
+  font-family: var(--bs-body-font-family);
+  font-weight: 600;
+}
+
+.event {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px 25px;
+}
+
+#photo-1 {
+  background: url(/media/thumbnails/cause2.webp) no-repeat 50% 80% / cover;
+}
+
+#photo-2 {
+  background: url(/media/thumbnails/horseracing.webp) no-repeat 50% 60% / cover;
+}
+
+#photo-3 {
+  background: url(/media/thumbnails/basketball-match.webp) no-repeat 50% 80% / cover;
+}
+
+.event-text-box {
+  
+  background-color: #ffffffd5;
+  border-radius: 5px;
+  
+}
+
+/* Media */
+
+@media (max-width: 768px) {
+  #div1 {
+    order:2;
+  }
+  #div2 {
+    order:1;
+  }
+  .flex-columns {
+    display: flex;
+    flex-direction: column;
+  }
+  #socials {
+    display: none;
+  }
+  #hero {
+    margin-top: 10px;
+  }
+}

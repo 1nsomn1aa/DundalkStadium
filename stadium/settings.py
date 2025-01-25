@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9&)f4gjou7)g3f**c(0it(4efz0h%pizuhva9i@_sd6exb^(o*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-1nsomn1aa-dundalkstadiu-q0jqdhcxgfm.ws.codeinstitute-ide.net',
                 '.herokuapp.com']
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -130,15 +131,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'website', 'static')]
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, 'website/static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
@@ -152,5 +155,18 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'stadiumdundalk@gmail.com'
 EMAIL_HOST_PASSWORD = 'jnkpwtbfjobskvud'
+
+AWS_ACCESS_KEY_ID = 'AKIAUJ3VUKP72E5ZMSVX'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'dundalkstadium'
+
+AWS_S3_ADDRESSING_STYLE = "virtual"
+AWS_S3_REGION_NAME = 'eu-north-1'
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 django_heroku.settings(locals())
