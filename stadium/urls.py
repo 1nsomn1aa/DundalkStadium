@@ -25,6 +25,8 @@ from users.views import delete_booking
 from django.conf.urls import handler404, handler500
 from website.views import custom_404_view, custom_500_view
 from django.shortcuts import render
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('', include('website.urls')),
@@ -39,6 +41,7 @@ urlpatterns = [
     path('profile/', user_views.profile, name='profile'),
     path('booking/', booking_view, name='booking'),
     path('booking/delete/<int:booking_id>/', delete_booking, name='delete_booking'),
+    path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('img/favicon.ico'))),
 ]
 
 if settings.DEBUG:
