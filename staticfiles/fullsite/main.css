@@ -156,7 +156,7 @@ a {
 /* Bookings */
 
 #booking {
-  background: url(/media/thumbnails/ticket-booth.webp) no-repeat 50% 50% / cover;
+  background: url(../img/ticket-booth.webp) no-repeat 50% 50% / cover;
 }
 
 #booking p, h1, h2, h3, label {
@@ -199,15 +199,15 @@ a {
 }
 
 #photo-1 {
-  background: url(/media/thumbnails/cause2.webp) no-repeat 50% 80% / cover;
+  background: url(../img/cause2.webp) no-repeat 50% 80% / cover;
 }
 
 #photo-2 {
-  background: url(/media/thumbnails/horseracing.webp) no-repeat 50% 60% / cover;
+  background: url(../img/horseracing.webp) no-repeat 50% 60% / cover;
 }
 
 #photo-3 {
-  background: url(/media/thumbnails/basketball-match.webp) no-repeat 50% 80% / cover;
+  background: url(../img/basketball-match.webp) no-repeat 50% 80% / cover;
 }
 
 .event-text-box {
