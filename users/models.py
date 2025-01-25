@@ -20,7 +20,7 @@ class Profile(models.Model):
 
                 thumb_io = BytesIO()
                 img.save(thumb_io, img.format)
-                thumb_io.seek(0)  # Reset the BytesIO object to the beginning
+                thumb_io.seek(0)
                 file_name = self.image.name
                 self.image.save(
                     file_name,
