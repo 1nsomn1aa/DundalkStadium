@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 import django_heroku
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9&)f4gjou7)g3f**c(0it(4efz0h%pizuhva9i@_sd6exb^(o*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-1nsomn1aa-dundalkstadiu-q0jqdhcxgfm.ws.codeinstitute-ide.net',
                 '.herokuapp.com']
@@ -156,9 +157,9 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'stadiumdundalk@gmail.com'
 EMAIL_HOST_PASSWORD = 'jnkpwtbfjobskvud'
 
-AWS_ACCESS_KEY_ID = 'AKIAUJ3VUKP72E5ZMSVX'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'dundalkstadium'
+AWS_ACCESS_KEY_ID = config('AWS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_KEY_SECRET')
+AWS_STORAGE_BUCKET_NAME = config('AWS_BUCKET')
 
 AWS_S3_ADDRESSING_STYLE = "virtual"
 AWS_S3_REGION_NAME = 'eu-north-1'
