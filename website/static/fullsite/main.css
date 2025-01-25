@@ -27,6 +27,10 @@ body {
     font-size: large;
 }
 
+.navbar button {
+  border: none
+}
+
 .header {
     background-color: #ffffffd5;
     display: grid;
@@ -141,21 +145,6 @@ a {
   transition: 1s ease;
   }
 
-
-
-@media (max-width: 768px) {
-    #div1 {
-      order:2;
-    }
-    #div2 {
-      order:1;
-    }
-    .flex-columns {
-      display: flex;
-      flex-direction: column;
-    }
-}
-
 /* Opening Hours */
 
 #opening-hours, #opening-hours table {
@@ -232,5 +221,23 @@ a {
   
 }
 
-/* Contact */
+/* Media */
 
+@media (max-width: 768px) {
+  #div1 {
+    order:2;
+  }
+  #div2 {
+    order:1;
+  }
+  .flex-columns {
+    display: flex;
+    flex-direction: column;
+  }
+  #socials {
+    display: none;
+  }
+  #hero {
+    margin-top: 10px;
+  }
+}

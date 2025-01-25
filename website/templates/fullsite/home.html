@@ -11,7 +11,7 @@
 
 <section id="hero" class="img-fluid">
   <div class="container col-xxl-8 px-4 py-5" id="hero-text">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5 ">
       <div class="col-10 col-sm-8 col-lg-6">
         <img src="{% static '/img/dundalk.png' %}" id="hero-img-small" class="d-block mx-lg-auto img-fluid"
           alt="Bootstrap Themes" width="700" height="500" loading="lazy">
@@ -23,9 +23,9 @@
           events and reserve your court times easily through our online booking system. Enjoy state-of-the-art
           facilities and create unforgettable moments with us!</p>
         <br>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <a href="/events"><button type="button" class="btn btn-outline-primary btn-lg px-4 me-md-2">Events</button></a>
-          <a href="/booking"><button type="button" class="btn btn-outline-primary btn-lg px-4 me-md-2">Bookings</button></a>
+        <div class="gap-2 d-md-flex justify-content-md-start">
+          <a href="{% url 'events' %}"><button type="button" class="btn btn-outline-primary btn-lg px-4 me-md-2">Events</button></a>
+          <a href="{% url 'booking' %}"><button type="button" class="btn btn-outline-primary btn-lg px-4 me-md-2">Bookings</button></a>
         </div>
       </div>
     </div>
@@ -82,12 +82,12 @@
       <h1 class="display-3 fw-bold">Facilities</h1>
       <h3 class="fw-normal text-muted mb-3">Check out our current Facilities!</h3>
       <div class="d-flex gap-3 justify-content-center lead fw-normal">
-        <a class="icon-link" href="#">
+        <a class="icon-link" href="{% url 'booking' %}">
           Booking
           <svg class="bi">
             <use xlink:href="#chevron-right" /></svg>
         </a>
-        <a class="icon-link" href="#">
+        <a class="icon-link" href="{% url 'events' %}">
           Events
           <svg class="bi">
             <use xlink:href="#chevron-right" /></svg>
