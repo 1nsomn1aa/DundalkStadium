@@ -5,20 +5,25 @@ from django.contrib import messages
 from .models import News
 from django.conf.urls import handler404, handler500
 
+
 def home(request):
     context = {
         'news': News.objects.all()
     }
     return render(request, 'fullsite/home.html', context)
 
+
 def events(request):
     return render(request, 'fullsite/events.html', {'title': 'Events'})
+
 
 def booking(request):
     return render(request, 'fullsite/booking.html', {'title': 'Booking'})
 
+
 def about(request):
     return render(request, 'fullsite/about.html', {'title': 'About'})
+
 
 def contact(request):
 
@@ -49,6 +54,7 @@ def contact(request):
 
     return render(request, 'fullsite/contact.html', {'title': 'Contact'})
 
+
 def news(request, post_id):
     selected_news = News.objects.get(id=post_id)
     recent_news = News.objects.order_by('-date_posted')[:3]
@@ -59,8 +65,10 @@ def news(request, post_id):
     }
     return render(request, 'fullsite/news.html', context)
 
+
 def custom_404_view(request, exception):
     return render(request, '404.html', status=404)
+
 
 def custom_500_view(request):
     return render(request, '500.html', status=500)

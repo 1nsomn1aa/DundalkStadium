@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from booking.models import Booking
 
+
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -52,10 +53,11 @@ def profile(request):
         'p_form': p_form,
         'title': 'Profile',
         'user': request.user,
-        'user_bookings': user_bookings, 
+        'user_bookings': user_bookings,
     }
 
     return render(request, 'users/profile.html', context)
+
 
 @login_required
 def delete_booking(request, booking_id):

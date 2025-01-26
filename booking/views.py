@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 
+
 @login_required
 def booking_view(request):
     game_types = GameType.objects.all()
@@ -54,7 +55,7 @@ def booking_view(request):
                 booking.save()
 
                 messages.success(request, 'Booking successful!')
-        
+
                 send_mail(
                     'Booking Confirmation',
                     f'Hello {request.user.username},\n\n'

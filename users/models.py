@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.core.files.base import ContentFile
 from io import BytesIO
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     image = models.ImageField(default='default.png', upload_to='profile-pics')
